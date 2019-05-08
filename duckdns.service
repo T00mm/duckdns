@@ -1,5 +1,6 @@
 [Unit]
 Description=DuckDNS update job
+After=network.target
 
 [Service]
 Type=oneshot
