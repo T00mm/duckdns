@@ -2,7 +2,8 @@
 Description=Run DuckDNS every 5 minutes
 
 [Timer]
-OnCalendar=*:0/15
+OnBootSec=1
+OnUnitActiveSec=5min
 
 [Install]
 WantedBy=timers.target
