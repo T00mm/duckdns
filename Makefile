@@ -4,10 +4,17 @@ EXECUTABLE_NAME = duckdns
 VERSION = 1.1
 ARCHPKG = $(EXECUTABLE_NAME)-$(VERSION)-1-any.pkg.tar.xz
 
+man: $(EXECUTABLE_NAME).1.gz
+
+$(EXECUTABLE_NAME).1.gz: README.rst
+	rst2man $^ | gzip -c > $@
+
 install:
 	install -m 755 -D $(EXECUTABLE_NAME).sh $(DESTDIR)$(PREFIX)/bin/$(EXECUTABLE_NAME)
 	install -m 755 -d $(DESTDIR)/etc/$(EXECUTABLE_NAME).d
 	install -m 644 -D default.cfg $(DESTDIR)/etc/$(EXECUTABLE_NAME).d/default.cfg
+	install -m 644 -D $(EXECUTABLE_NAME).1.gz $(DESTDIR)$(PREFIX)/share/man/man1/$(EXECUTABLE_NAME).1.gz
+
 
 
 install_services:
@@ -43,6 +50,6 @@ $(ARCHPKG): PKGBUILD
 	@echo pacman -U $@
 
 clean:
-	rm -f PKGBUILD $(ARCHPKG)
+	rm -f PKGBUILD $(ARCHPKG) $(EXECUTABLE_NAME).1.gz
 
-.PHONY: clean install install_services arch_install_services uninstall full_uninstall arch_pkg
+.PHONY: clean man install install_services arch_install_services uninstall full_uninstall arch_pkg
