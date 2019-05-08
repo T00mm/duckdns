@@ -1,0 +1,18 @@
+post_install() {
+    echo "Reloading daemons..."
+    systemctl daemon-reload
+    systemctl condrestart duckdns
+}
+
+post_upgrade() {
+    echo "Reloading daemons..."
+    systemctl daemon-reload
+    systemctl condrestart duckdns
+}
+
+pre_remove() {
+    echo "Stopping duckdns service..."
+    systemctl stop duckdns
+    echo "Disabling duckdns service..."
+    systemctl disable duckdns
+}

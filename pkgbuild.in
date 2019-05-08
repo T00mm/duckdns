@@ -1,0 +1,17 @@
+# Maintainer: Mesmer <mdomlop@gmail.com>
+pkgname=
+pkgver=
+pkgrel=1
+pkgdesc="Update your DuckDNS.org entries from your computer."
+arch=('any')
+install=${pkgname}.install
+url="https://www.duckdns.org"
+backup=("etc/duckdns.d/default.cfg")
+
+source=('default.cfg' 'duckdns.service' 'duckdns.sh' 'duckdns.timer')
+
+package() {
+    cd $startdir
+    make install DESTDIR=$pkgdir
+    make arch_install_services DESTDIR=$pkgdir
+}
