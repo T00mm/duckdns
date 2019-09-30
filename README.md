@@ -12,16 +12,16 @@ Execute these comments
 
 Clone/download this repo on your computer
 
-	mv duckdns.sh /usr/bin/duckdns
-	chmod +x /usr/bin/duckdns
-	mv duckdns.service /usr/lib/systemd/system/
-	mv duckdns.timer /usr/lib/systemd/system/
-	
-	mkdir -p /etc/duckdns.d
-	mv default.cfg /etc/duckdns.d/
-	
-	systemctl enable duckdns.timer
-	systemctl start duckdns.timer
+	sudo mv duckdns.sh /usr/bin/duckdns
+	sudo chmod +x /usr/bin/duckdns
+	sudo mv duckdns.service /usr/lib/systemd/system/
+	sudo mv duckdns.timer /usr/lib/systemd/system/
+
+	sudo mkdir -p /etc/duckdns.d
+	sudo mv default.cfg /etc/duckdns.d/
+
+	sudo systemctl enable duckdns.timer
+	sudo systemctl start duckdns.timer
 
 
 ### Configuration
@@ -34,4 +34,3 @@ the **default.cfg** file shows perfectly what options you must enter, you can cr
 Nothing more is needed.
 
 Config files must be placed inside the `/etc/duckdns.d`  folder
-
