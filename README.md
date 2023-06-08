@@ -14,16 +14,18 @@ Execute these comments
 
 Clone/download this repo on your computer
 
-    mv duckdns.sh /usr/bin/duckdns
-    chmod +x /usr/bin/duckdns
-    mv duckdns.service /usr/lib/systemd/system/
-    mv duckdns.timer /usr/lib/systemd/system/
 
-    mkdir -p /etc/duckdns.d
-    mv default.cfg /etc/duckdns.d/
+	sudo mv duckdns.sh /usr/bin/duckdns
+	sudo chmod +x /usr/bin/duckdns
+	sudo mv duckdns.service /usr/lib/systemd/system/
+	sudo mv duckdns.timer /usr/lib/systemd/system/
 
-    systemctl enable duckdns.timer
-    systemctl start duckdns.timer
+	sudo mkdir -p /etc/duckdns.d
+	sudo mv default.cfg /etc/duckdns.d/
+
+	sudo systemctl enable duckdns.timer
+	sudo systemctl start duckdns.timer
+
 
 ### Configuration
 
